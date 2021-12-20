@@ -1,5 +1,4 @@
 package pages;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -10,10 +9,9 @@ public abstract class BasePage {
     public static final String Base_URL = "https://sharnikovael.lightning.force.com";
     public static final By BREADCRUMBS_LABEL = By.xpath("//nav[@aria-label='Breadcrumbs']//span");
     public static final By NEW_BUTTON = By.xpath("//a[@title='New']");
-        public static final By MODAL_TITLE = By.xpath("//div[@class='modal-container slds-modal__container']//h2");
-//    public static final By MODAL_TITLE = By.xpath("//div[@class='modal-container slds-modal__container']//h2[text()='%s']");
-    public static final By SAVE_BUTTON = By.xpath("//button[@title='Save']");
+    public static final By MODAL_TITLE = By.xpath("//div[@class='modal-container slds-modal__container']//h2");
     public static final By DETAILS_LINK = By.xpath("//a[@data-tab-value='detailTab']");
+
     WebDriver driver;
     WebDriverWait wait;
 

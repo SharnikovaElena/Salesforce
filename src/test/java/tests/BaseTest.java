@@ -18,6 +18,7 @@ public abstract class BaseTest {
     AccountDetailsPage accountDetailsPage;
     ContactModalPage contactModalPage;
     ContactListPage contactListPage;
+    ContactDetailsPage contactDetailsPage;
 
     @BeforeMethod
     public void setup() {
@@ -32,10 +33,11 @@ public abstract class BaseTest {
         accountDetailsPage = new AccountDetailsPage(driver);
         contactModalPage = new ContactModalPage(driver);
         contactListPage = new ContactListPage(driver);
+        contactDetailsPage = new ContactDetailsPage(driver);
     }
 
-//    @AfterMethod (alwaysRun = true)
-//    public void tearDown() {
-//        driver.quit();
-//    }
+    @AfterMethod (alwaysRun = true)
+    public void tearDown() {
+        driver.quit();
+    }
 }

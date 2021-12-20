@@ -8,7 +8,7 @@ public class AccountDetailsPage extends BasePage {
     String fieldFormatPhoneValue = "//span[text()='%s']//ancestor::div[@force-recordlayoutitem_recordlayoutitem]//a[@lightning-formattedphone_formattedphone]";
     String fieldFormatUrlValue = "//span[text()='%s']//ancestor::flexipage-tab2//lightning-formatted-url";
     String fieldFormatNumberValue = "//span[text()='%s']/ancestor::div[@force-recordlayoutitem_recordlayoutitem]//lightning-formatted-number";
-    String fieldFormatAddressValue = "//span[text()='%']/ancestor::div[@force-recordlayoutitem_recordlayoutitem]//lightning-formatted-address//a";
+    String fieldFormatAddressValue = "//span[text()='%']/ancestor::div[@force-recordlayoutitem_recordlayoutitem]//lightning-formatted-address";
 
 
     public AccountDetailsPage(WebDriver driver) {

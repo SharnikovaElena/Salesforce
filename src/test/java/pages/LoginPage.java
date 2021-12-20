@@ -1,4 +1,5 @@
 package pages;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -14,7 +15,7 @@ public class LoginPage extends BasePage {
 
     @Override
     public boolean isPageOpen() {
-      return isExit(LOGIN_BUTTON);
+        return isExit(LOGIN_BUTTON);
     }
 
     public LoginPage open() {
@@ -26,6 +27,6 @@ public class LoginPage extends BasePage {
         driver.findElement(USERNAME_INPUT).sendKeys(userName);
         driver.findElement(PASSWORD_INPUT).sendKeys(password);
         driver.findElement(LOGIN_BUTTON).click();
-       return  new HomePage(driver);
-        }
+        return new HomePage(driver);
+    }
 }

@@ -5,7 +5,6 @@ import org.openqa.selenium.WebDriver;
 public class ContactListPage extends  BasePage{
 
     public static final By BREADCRUMBS_LABEL = By.xpath("//nav[@aria-label='Breadcrumbs']//span");
-//public static final By BREADCRUMBS_LABEL = By.xpath("//nav[@aria-label='Breadcrumbs']//li//span[text()='%s']");
 
     public ContactListPage(WebDriver driver) {
         super(driver);

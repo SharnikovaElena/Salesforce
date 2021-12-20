@@ -6,7 +6,8 @@ import org.testng.annotations.Test;
 
 
 public class AccountTest extends BaseTest {
-    @Test
+    @Test (description = "Проверяем создание нового аккаунта: на вкладке Accounts нажимаем button 'New', заполняем все поля в открывшемся Popup AccountModal, нажимаем button 'Save'. Проводим проверку соответствия данных в полях созданного аккаунта с теми данными, которые были введены в Popup AccountModal")
+
     public void accountShouldBeCreated() throws InterruptedException {
         loginPage.open();
         loginPage.login("ev.sharnikova-zvlc@force.com", "Sharnikova2021");
@@ -34,7 +35,7 @@ public class AccountTest extends BaseTest {
         Assert.assertEquals(accountDetailsPage.getFieldFormatTextValueByName("Industry"), account.getIndustry(), "Industry does not match");
         Assert.assertEquals(accountDetailsPage.getFieldFormatTextValueByName("Annual Revenue"), "$" + account.getAnnualRevenue(), "Annual Revenue does not match");
         Assert.assertEquals(accountDetailsPage.getFieldFormatTextValueByName("Description"), account.getDescription(), "Description does not match");
-//        Assert.assertEquals(accountDetailsPage.getFieldFormatAddressValue("Billing Address"), account.getBillingStreet() + '\n' + account.getBillingCity() + ", " + account.getBillingStateProvince() + " " + account.getBillingZip() + '\n' + account.getBillingCountry(), "Billing Address does not match");
-//        Assert.assertEquals(accountDetailsPage.getFieldFormatAddressValue("Shipping Address"), String.format(account.getShippingStreet() + '\n', account.getShippingCity() + ", ", account.getBillingStateProvince() + " ", account.getShippingZip() + '\n', account.getShippingCountry()), "Shipping Address does not match");
+//        Assert.assertEquals(accountDetailsPage.getFieldFormatAddressValue("Billing Address"), account.getBillingStreet() + "\n" + account.getBillingCity() + ", " + account.getBillingStateProvince() + " " + account.getBillingZip() + "\n" + account.getBillingCountry(), "Billing Address does not match");
+//        Assert.assertEquals(accountDetailsPage.getFieldFormatAddressValue("Shipping Address"), account.getShippingStreet() + '\n' + account.getShippingCity() + ", " + account.getShippingStateProvince() + " " + account.getShippingZip() + '\n' + account.getShippingCountry(), "Shipping Address does not match");
     }
 }
