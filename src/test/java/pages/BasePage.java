@@ -7,17 +7,23 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public abstract class BasePage {
 
     public static final String Base_URL = "https://sharnikovael.lightning.force.com";
+    public static final By BREADCRUMBS_LABEL = By.xpath("//nav[@aria-label='Breadcrumbs']//span");
+    public static final By NEW_BUTTON = By.xpath("//a[@title='New']");
+    public static final By MODAL_TITLE = By.xpath("//div[@class='modal-container slds-modal__container']//h2");
+    public static final By DETAILS_LINK = By.xpath("//a[@data-tab-value='detailTab']");
+
     WebDriver driver;
     WebDriverWait wait;
+
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
         wait = new WebDriverWait(driver, 20);
     }
 
-    public abstract boolean isPageOpen();
+    public abstract boolean isPageOpen() throws InterruptedException;
 
-    protected boolean isExit(By locator) {
+    public boolean isExit(By locator) {
         try {
             return driver.findElement(locator).isDisplayed();
 
