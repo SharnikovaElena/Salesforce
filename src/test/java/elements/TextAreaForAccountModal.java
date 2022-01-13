@@ -1,7 +1,9 @@
 package elements;
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+@Log4j2
 public class TextAreaForAccountModal {
 
     WebDriver driver;
@@ -15,7 +17,7 @@ public class TextAreaForAccountModal {
     }
 
     public void write(String text) {
-        System.out.printf("Writing text '%s' into TextArea with label '%s'\n", text, this.label);
+        log.info("Writing text into textarea with by the specified name when creating an account");
         driver.findElement(By.xpath(String.format(inputTextArea, this.label))).sendKeys(text);
     }
 }
