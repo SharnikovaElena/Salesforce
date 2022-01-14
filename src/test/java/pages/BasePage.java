@@ -6,7 +6,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public abstract class BasePage {
 
-    public static final String Base_URL = "https://sharnikovael.lightning.force.com";
+    public static final String Base_URL = "https://freelance-6a.lightning.force.com/";
     public static final By BREADCRUMBS_LABEL = By.xpath("//nav[@aria-label='Breadcrumbs']//span");
     public static final By NEW_BUTTON = By.xpath("//a[@title='New']");
     public static final By MODAL_TITLE = By.xpath("//div[@class='modal-container slds-modal__container']//h2");

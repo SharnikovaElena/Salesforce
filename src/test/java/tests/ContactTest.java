@@ -1,30 +1,42 @@
 package tests;
 
+import lombok.extern.log4j.Log4j2;
 import models.Contact;
+import models.ContactFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import utils.AllureUtils;
 
+@Log4j2
 public class ContactTest extends BaseTest {
 
-    @Test(description = "Проверяем создание нового контакта: на вкладке Contacts нажимаем button 'New', заполняем все поля в открывшемся Popup ContactModal, нажимаем button 'Save'. Проводим проверку соответствия данных в полях созданного контакта с теми данными, которые были введены в Popup ContactModal")
+    @Test(description = "Create new contact and check to compare data entered into ContactModalPage and displayed on ContactDetailsPage")
     public void contactShouldBeCreated() throws InterruptedException {
+        log.info("Test start ContactTest");
         loginPage.open();
-        loginPage.login("ev.sharnikova-zvlc@force.com", "Sharnikova2021");
+        loginPage.login("lena012022-fse8@force.com", "lenor4ik");
 
         boolean isContactModalOpen = contactListPage
                 .open()
                 .clickNew()
                 .isPageOpen();
-
+        log.info("Checking that ContactModal has opened");
         Assert.assertTrue(isContactModalOpen, "Popup AccountModal did not open");
 
-        Contact contact = new Contact("Mrs.", "Инна", "Беляева", "Спартак", "начальник", "+375-212-348596", "+3758925648", "inna@gmail.com", "Данилевич", "пр-т Скорины, 61", "Гродно", "Гродненская область", "230050", "Беларусь", "-", "-", "-", "-", "-", "+375-212-348596", "+375-212-589642", "-", "+3753365912352", "Шамшуро Дмитрий", "Sales", "On Site", "12/12/1995", "Долг 3000$");
+        log.info("Create a new contact");
+
+        Contact contact = ContactFactory.get();
 
         boolean isContactDetailsPageOpen = contactModalPage
                 .create(contact)
                 .isPageOpen();
+        AllureUtils.takeScreenshot(driver);
+
+        log.error("New contact creation completed");
+
         Assert.assertTrue(isContactDetailsPageOpen, "Details page did not open");
 
+        log.info("Start assertEquals to compare data entered into ContactModalPage and displayed on ContactDetailsPage");
         Assert.assertEquals(contactDetailsPage.getFieldFormatNameValue("Name"), contact.getSalutation() + " " + contact.getFirstName() + " " + contact.getLastName(), "Field Name does not match");
         Assert.assertEquals(contactDetailsPage.getFieldFormatAccountName("Account Name"), contact.getAccountName(), "Field Account Name does not match");
         Assert.assertEquals(contactDetailsPage.getFieldFormatTextValue("Title"), contact.getTitle(), "Title does not match");
@@ -42,8 +54,10 @@ public class ContactTest extends BaseTest {
         Assert.assertEquals(contactDetailsPage.getFieldFormatTextValue("Department"), contact.getDepartment(), "Department does not match");
         Assert.assertEquals(contactDetailsPage.getFieldFormatTextValue("Lead Source"), contact.getLeadSource(), "Lead Source does not match");
         Assert.assertEquals(contactDetailsPage.getFieldFormatTextValue("Birthdate"), contact.getBirthdate(), "Birthdate does not match");
-    }
 
+        log.info("Completing assertEquals to compare data entered into ContactModalPage and displayed on ContactDetailsPage");
+        log.info("Completing the ContactTest");
+    }
 }
 
 

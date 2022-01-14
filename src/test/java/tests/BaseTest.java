@@ -36,8 +36,8 @@ public abstract class BaseTest {
         contactDetailsPage = new ContactDetailsPage(driver);
     }
 
-    @AfterMethod (alwaysRun = true)
-    public void tearDown() {
-        driver.quit();
-    }
+//    @AfterMethod (alwaysRun = true)
+//    public void tearDown() {
+//        driver.quit();
+//    }
 }
